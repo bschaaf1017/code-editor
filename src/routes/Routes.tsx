@@ -20,7 +20,6 @@ const Routes = () => {
   return (
     <div className={classes.main}>
       <Header />
-      <div>Header</div>
       <div className={classes.page}>
         <Switch>
           <ProtectedRoute exact path={routeEndpoints.codeEditor}>
