@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core'
 import React from 'react'
 import { Redirect, Route, Switch } from 'react-router-dom';
 import ProtectedRoute from '../auth/ProtectedRoute';
+import Header from '../components/common/header/Header';
 import Loading from '../components/common/loading/Loading';
 import routeEndpoints from './routeEndpoints';
 
@@ -18,10 +19,13 @@ const Routes = () => {
 
   return (
     <div className={classes.main}>
+      <Header />
       <div>Header</div>
       <div className={classes.page}>
         <Switch>
-          <ProtectedRoute exact path={routeEndpoints.codeEditor} component={<div>Code Editor</div>}/>
+          <ProtectedRoute exact path={routeEndpoints.codeEditor}>
+            {() => <div>code edit</div>}
+          </ProtectedRoute>
           <Route exact path={routeEndpoints.home}>
             { isAuthenticated ? <Redirect to={routeEndpoints.codeEditor}/> : <div>Home</div>} 
             </Route>
