@@ -3,18 +3,18 @@ import { makeStyles, Button } from '@material-ui/core';
 import React from 'react'
 import { commonColors } from '../theme/colors';
 
-const SignIn = () => {
-  const { loginWithRedirect } = useAuth0();
-  const onLogin = (): void => {
-    loginWithRedirect();
+const SignOut = () => {
+  const { logout } = useAuth0();
+  const onSignOut = (): void => {
+    logout({returnTo: window.location.origin});
   }
   const classes = useStyles();
   return (
     <Button 
       className={classes.button}
-      onClick={onLogin}
+      onClick={onSignOut}
     >
-      Sign In
+      Sign Out
     </Button>
   )
 }
@@ -24,4 +24,4 @@ const useStyles = makeStyles(() => ({
     color: commonColors.white
   }
 }));
-export default SignIn
+export default SignOut;
