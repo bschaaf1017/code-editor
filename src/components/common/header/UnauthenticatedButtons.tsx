@@ -1,7 +1,7 @@
 import React from 'react'
 import SignIn from '../../../auth/SignIn'
 
-const UnauthenticatedButtons = () => {
+const UnauthenticatedButtons = (): React.ReactElement => {
   return (
     <div>
       <SignIn />
